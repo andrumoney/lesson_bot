@@ -128,8 +128,6 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return ConversationHandler.END
 
 # Запуск бота
-app = ApplicationBuilder().token(BOT_TOKEN).build()
-
 conv_handler = ConversationHandler(
     entry_points=[CommandHandler("plan", plan_start)],
     states={
@@ -139,6 +137,7 @@ conv_handler = ConversationHandler(
         FORMAT: [CallbackQueryHandler(format_chosen)],
     },
     fallbacks=[CommandHandler("cancel", cancel)],
+    per_message=True,  # 👈 добавь вот это
 )
 
 app.add_handler(CommandHandler("start", start))
