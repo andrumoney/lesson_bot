@@ -139,6 +139,8 @@ conv_handler = ConversationHandler(
     fallbacks=[CommandHandler("cancel", cancel)],
     per_message=True,  # 👈 добавь вот это
 )
+# ✅ ВСТАВЬ СЮДА
+app = ApplicationBuilder().token(BOT_TOKEN).build()
 
 app.add_handler(CommandHandler("start", start))
 app.add_handler(conv_handler)
