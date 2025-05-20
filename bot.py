@@ -30,6 +30,7 @@ async def plan_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("Биология", callback_data="Биология"),
          InlineKeyboardButton("История", callback_data="История")]
     ]
+    ]
     await update.effective_message.reply_text("Выбери предмет:", reply_markup=InlineKeyboardMarkup(keyboard))
     return SUBJECT
 
